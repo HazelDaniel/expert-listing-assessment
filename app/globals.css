@@ -33,7 +33,7 @@ body {
 }
 
 .home-shell::after {
-  background: linear-gradient(180deg, rgba(0, 0, 0, .12), rgba(0, 0, 0, .34));
+  /* background: linear-gradient(180deg, rgba(0, 0, 0, .12), rgba(0, 0, 0, .34)); */
   content: "";
   inset: 0;
   pointer-events: none;
@@ -53,7 +53,7 @@ body {
 }
 
 .home-shell__map {
-  background: url("/map-background-image.jpg") center bottom / cover no-repeat;
+  /* background: url("/map-background-image.jpg") center bottom / cover no-repeat; */
   bottom: -7vh;
   filter: grayscale(1) contrast(1.05);
   height: 54vh;
@@ -68,10 +68,22 @@ body {
 }
 
 .home-shell__map::after {
-  background: linear-gradient(180deg, #111 0%, transparent 52%, rgba(255,255,255,.12) 100%);
   content: "";
   inset: 0;
   position: absolute;
+}
+
+.home-shell__content-banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+  url(/geolocation-doodle-background.svg);
+  z-index: -1;
+  opacity: 0.4;
+  filter: blur(2px);
 }
 
 .home-shell__content {
@@ -163,6 +175,7 @@ h1 span { color: var(--accent); }
   padding: .35rem;
   text-align: left;
   width: 100%;
+
 }
 
 .typeahead__row {
@@ -184,6 +197,7 @@ h1 span { color: var(--accent); }
 }
 
 .typeahead__selection-label { color: #527b2c; font-weight: 700; }
+.typeahead__selection-content { color: #fffffe; font-weight: 700; }
 
 @media (max-width: 600px) {
   .home-shell__content { padding-bottom: 17rem; }

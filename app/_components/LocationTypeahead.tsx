@@ -212,7 +212,7 @@ export default function LocationTypeahead() {
       {selected && (
         <p className="typeahead__selection">
           <span className="typeahead__selection-label">Selected:</span>{" "}
-          {selected.label} ({selected.lat}, {selected.lon})
+          <span className="typeahead__selection-content">{selected.label} ({selected.lat}, {selected.lon})</span>
         </p>
       )}
     </div>
