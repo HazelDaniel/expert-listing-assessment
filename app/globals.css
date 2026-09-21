@@ -83,7 +83,7 @@ body {
   url(/geolocation-doodle-background.svg);
   z-index: -1;
   opacity: 0.4;
-  filter: blur(2px);
+  filter: blur(4px);
 }
 
 .home-shell__content {
