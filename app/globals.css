@@ -58,9 +58,10 @@ body {
   left: -5%;
   opacity: .76;
   position: absolute;
-  transform: perspective(900px) rotateX(17deg) scale(1.08);
+  transform: perspective(900px) rotateX(15deg) scale(1.18) scaleX(1.2);
   transform-origin: bottom center;
-  width: 110%;
+  width: 100%;
+  background-size: 110% 110%;
   z-index: -1;
 }
 
@@ -129,6 +130,7 @@ h1 span { color: #a9a9a9; }
   padding: 1.1rem 3.5rem 1.1rem 1.35rem;
   transition: box-shadow .2s ease, transform .2s ease;
   width: 100%;
+  max-width: 98vw;
 }
 
 .typeahead__input::placeholder { color: #898989; }
@@ -144,10 +146,8 @@ h1 span { color: #a9a9a9; }
   height: 1.1rem;
   position: absolute;
   right: 1.3rem;
-  top: 50%;
-  transform: translateY(-50%);
+  top: calc(50% - .55rem);
   width: 1.1rem;
-  animation: spin .7s linear infinite;
 }
 
 .typeahead__listbox {
@@ -173,11 +173,22 @@ h1 span { color: #a9a9a9; }
 }
 .typeahead__row:hover, .typeahead__row--active { background: rgba(255,255,255,.12); }
 .typeahead__row--muted { color: #999; cursor: default; }
-.typeahead__selection { color: #222; font-size: .78rem; margin: 1rem 0 0; max-width: 100%; }
+.typeahead__selection {
+  color: #222;
+  font-size: .78rem;
+  margin: 1rem 0 0;
+  max-width: 100%;
+}
 
-@keyframes spin { to { transform: translateY(-50%) rotate(360deg); top: 50%; } }
+.typeahead__selection-label { font-weight: 700; }
 
 @media (max-width: 600px) {
   .home-shell__content { padding-bottom: 17rem; }
   .home-shell__map { bottom: -3vh; height: 43vh; }
+}
+
+@media screen and (min-width: 601px) {
+  .home-shell__map {
+    transform: perspective(900px) rotateX(15deg) scale(1.08);
+  }
 }

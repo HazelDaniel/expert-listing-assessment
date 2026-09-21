@@ -162,7 +162,9 @@ export default function LocationTypeahead() {
           onFocus={() => results.length > 0 && setIsOpen(true)}
           onBlur={() => setTimeout(() => setIsOpen(false), 100)}
         />
-        {status === "loading" && <span className="typeahead__spinner" aria-hidden="true" />}
+        {status === "loading" && (
+          <span className="typeahead__spinner animate-spin" aria-hidden="true" />
+        )}
       </div>
 
       {/* Screen-reader-only live region; the visible feedback lives in the listbox below */}
@@ -208,8 +210,9 @@ export default function LocationTypeahead() {
       )}
 
       {selected && (
-        <p className="typeahead__selection text-white/80">
-          <span className="text-white">Selected:</span> <span className="text-white/80">{selected.label} ({selected.lat}, {selected.lon})</span>
+        <p className="typeahead__selection">
+          <span className="typeahead__selection-label">Selected:</span>{" "}
+          {selected.label} ({selected.lat}, {selected.lon})
         </p>
       )}
     </div>
