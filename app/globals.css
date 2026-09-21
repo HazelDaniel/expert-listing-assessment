@@ -13,7 +13,7 @@
 }
 
 * { box-sizing: border-box; }
-html { min-height: 100%; }
+html { min-height: 100%; overflow-x: hidden; }
 body {
   background: var(--background);
   color: var(--foreground);
@@ -175,7 +175,7 @@ h1 span { color: #a9a9a9; }
 .typeahead__row--muted { color: #999; cursor: default; }
 .typeahead__selection { color: #222; font-size: .78rem; margin: 1rem 0 0; max-width: 100%; }
 
-@keyframes spin { to { transform: translateY(-50%) rotate(360deg); } }
+@keyframes spin { to { transform: translateY(-50%) rotate(360deg); top: 50%; } }
 
 @media (max-width: 600px) {
   .home-shell__content { padding-bottom: 17rem; }
