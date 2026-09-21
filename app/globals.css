@@ -189,6 +189,6 @@ h1 span { color: #a9a9a9; }
 
 @media screen and (min-width: 601px) {
   .home-shell__map {
-    transform: perspective(900px) rotateX(15deg) scale(1.08);
+    transform: perspective(900px) rotateX(15deg) scale(1.28);
   }
 }
