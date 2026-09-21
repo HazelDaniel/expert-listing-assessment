@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+:root {
+  --background: #080808;
+  --foreground: #f6f5f2;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* { box-sizing: border-box; }
+html { min-height: 100%; }
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+.home-shell {
+  isolation: isolate;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background:
+    linear-gradient(180deg, #050505 0%, #111 38%, #ddd 100%);
+}
+
+.home-shell::after {
+  background: linear-gradient(180deg, rgba(0, 0, 0, .12), rgba(0, 0, 0, .34));
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+}
+
+.home-shell__glow {
+  background: radial-gradient(ellipse at 50% 18%, rgba(255,255,255,.14), transparent 45%);
+  height: 70%;
+  left: 50%;
+  pointer-events: none;
+  position: absolute;
+  top: -16%;
+  transform: translateX(-50%);
+  width: 90%;
+}
+
+.home-shell__map {
+  background: url("/map-background-image.jpg") center bottom / cover no-repeat;
+  bottom: -7vh;
+  filter: grayscale(1) contrast(1.05);
+  height: 54vh;
+  left: -5%;
+  opacity: .76;
+  position: absolute;
+  transform: perspective(900px) rotateX(17deg) scale(1.08);
+  transform-origin: bottom center;
+  width: 110%;
+  z-index: -1;
+}
+
+.home-shell__map::after {
+  background: linear-gradient(180deg, #111 0%, transparent 52%, rgba(255,255,255,.12) 100%);
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.home-shell__content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(5rem, 14vh, 10rem) 1.25rem 22rem;
+  position: relative;
+  text-align: center;
+  z-index: 1;
+}
+
+.eyebrow {
+  color: #bdbdbd;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .24em;
+  margin: 0 0 1.25rem;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: clamp(2.8rem, 7vw, 6.25rem);
+  font-weight: 400;
+  letter-spacing: -.065em;
+  line-height: .94;
+  margin: 0 0 2.75rem;
+}
+
+h1 span { color: #a9a9a9; }
+
+.typeahead {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 38rem);
+}
+
+.typeahead__label {
+  color: #d0d0d0;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  margin-bottom: .75rem;
+  text-transform: uppercase;
+}
+
+.typeahead__field { position: relative; width: 100%; }
+
+.typeahead__input {
+  background: rgba(255, 255, 255, .96);
+  border: 1px solid rgba(255, 255, 255, .8);
+  border-radius: 999px;
+  box-shadow: 0 1.5rem 3.5rem rgba(0, 0, 0, .35), 0 0 0 5px rgba(255, 255, 255, .07);
+  color: #171717;
+  font-size: 1rem;
+  outline: none;
+  padding: 1.1rem 3.5rem 1.1rem 1.35rem;
+  transition: box-shadow .2s ease, transform .2s ease;
+  width: 100%;
+}
+
+.typeahead__input::placeholder { color: #898989; }
+.typeahead__input:focus {
+  box-shadow: 0 1.5rem 3.5rem rgba(0, 0, 0, .4), 0 0 0 5px rgba(255, 255, 255, .18);
+  transform: translateY(-2px);
+}
+
+.typeahead__spinner {
+  border: 2px solid #d1d1d1;
+  border-right-color: #151515;
+  border-radius: 50%;
+  height: 1.1rem;
+  position: absolute;
+  right: 1.3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.1rem;
+  animation: spin .7s linear infinite;
+}
+
+.typeahead__listbox {
+  background: rgba(23, 23, 23, .96);
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-radius: 1rem;
+  box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, .35);
+  list-style: none;
+  margin: .65rem 0 0;
+  overflow: hidden;
+  padding: .35rem;
+  text-align: left;
+  width: 100%;
+}
+
+.typeahead__row {
+  border-radius: .7rem;
+  color: #ededed;
+  cursor: pointer;
+  font-size: .9rem;
+  line-height: 1.35;
+  padding: .8rem 1rem;
+}
+.typeahead__row:hover, .typeahead__row--active { background: rgba(255,255,255,.12); }
+.typeahead__row--muted { color: #999; cursor: default; }
+.typeahead__selection { color: #222; font-size: .78rem; margin: 1rem 0 0; max-width: 100%; }
+
+@keyframes spin { to { transform: translateY(-50%) rotate(360deg); } }
+
+@media (max-width: 600px) {
+  .home-shell__content { padding-bottom: 17rem; }
+  .home-shell__map { bottom: -3vh; height: 43vh; }
+}
