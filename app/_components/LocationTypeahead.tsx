@@ -168,6 +168,8 @@ export default function LocationTypeahead() {
         {status === "loading" && (
           <span className="typeahead__spinner animate-spin" aria-hidden="true" />
         )}
+      </div>
+      <div className="typeahead__bg-container">
         <div className="typeahead__field-bg"></div>
       </div>
 
